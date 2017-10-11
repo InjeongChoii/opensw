@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,16 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginRight="@dimen/activity_vertical_margin">
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium">
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/foodname"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="이름"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+            android:text="@string/food_name"
+            android:layout_marginLeft="@dimen/margin_medium"/>
 
        <EditText
            android:id="@+id/name_val"
@@ -27,24 +27,23 @@
            android:layout_height="wrap_content"
            android:layout_weight="3"
            android:ems="10"
-           android:inputType="textPersonName"
-           android:text="Name" />
+           android:inputType="textPersonName" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginRight="@dimen/activity_vertical_margin">
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium">
 
         <TextView
-            android:id="@+id/type"
+            android:id="@+id/category"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="유형"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:text="@string/category"
+            android:layout_marginLeft="@dimen/margin_medium"
             />
 
         <Spinner
@@ -60,16 +59,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginRight="@dimen/activity_vertical_margin">
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium">
 
         <TextView
             android:id="@+id/expiration_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="유통기한"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+            android:text="@string/expiration_date"
+            android:layout_marginLeft="@dimen/margin_medium"/>
 
         <EditText
             android:id="@+id/expiration_date_val"
@@ -78,14 +77,14 @@
             android:layout_weight="2"
             android:ems="10"
             android:inputType="date"
-            android:text="Expiration Date" />
+            android:text="@string/expiration_date_direct_input" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="선택" />
+            android:text="@string/search" />
 
     </LinearLayout>
 
@@ -99,7 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:text="등록" />
+            android:text="@string/regist" />
     </LinearLayout>
 
 </LinearLayout>
