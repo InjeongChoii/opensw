@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.androidtown.refrigerator.RegistProduct">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium">
+
+        <TextView
+            android:id="@+id/foodname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/food_name"
+            android:layout_marginLeft="@dimen/margin_medium"/>
+
+       <EditText
+           android:id="@+id/name_val"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_weight="3"
+           android:ems="10"
+           android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium">
+
+        <TextView
+            android:id="@+id/category"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/category"
+            android:layout_marginLeft="@dimen/margin_medium"
+            />
+
+        <Spinner
+            android:id="@+id/type_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium">
+
+        <TextView
+            android:id="@+id/expiration_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/expiration_date"
+            android:layout_marginLeft="@dimen/margin_medium"/>
+
+        <EditText
+            android:id="@+id/expiration_date_val"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:ems="10"
+            android:inputType="date"
+            android:text="@string/expiration_date_direct_input" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/search" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="@string/regist" />
+    </LinearLayout>
+
+</LinearLayout>
