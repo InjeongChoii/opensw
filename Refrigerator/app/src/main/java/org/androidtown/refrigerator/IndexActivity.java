@@ -1,5 +1,6 @@
 package org.androidtown.refrigerator;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
@@ -31,11 +32,33 @@ public class IndexActivity extends AppCompatActivity {
 
         context = this;
 
+    }
+
+    /**
+     * 1.2초 후 startTask()를 호출한다.
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Handler mHandler = new Handler();
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startTask();
+            }
+        },1200);
+    }
+
+    /**
+     * 현재 폰의 전화번호와 동일한 사용자 정보를 조회할 수 있도록
+     * selectMemberInfo() 를 호출한다.
+     */
+    public void startTask(){
         String phone = PhoneLib.getInstance().getPhoneNumber(this);
 
         selectMemberInfo(phone);
     }
-
 
     /**
      * 레트로핏을 활용하여 서버로부터 사용자 정보를 조회한다.
@@ -100,12 +123,12 @@ public class IndexActivity extends AppCompatActivity {
         if(item == null || item.seq <= 0){
             insertMemberPhone();
         }
-
-        Intent intent = new Intent(IndexActivity.this, MainActivity.class);
-        startActivity(intent);
 //
-//        Intent intent2 = new Intent(IndexActivity.this,ProfileActivity.class);
-//        startActivity(intent2);
+//        Intent intent = new Intent(IndexActivity.this, MainActivity.class);
+//        startActivity(intent);
+
+        Intent intent2 = new Intent(IndexActivity.this,WishList.class);
+        startActivity(intent2);
 
         finish();
     }
@@ -117,7 +140,7 @@ public class IndexActivity extends AppCompatActivity {
         String phone = PhoneLib.getInstance().getPhoneNumber(context);
         RemoteService remoteService = ServiceGenerator.createService(RemoteService.class);
 
-        Call<String > call = remoteService.insertMemberInfo(phone);
+        Call<String > call = remoteService.insertMemberPhone(phone);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {

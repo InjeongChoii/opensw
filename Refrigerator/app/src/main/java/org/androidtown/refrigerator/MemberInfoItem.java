@@ -1,5 +1,7 @@
 package org.androidtown.refrigerator;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * 사용자 정보를 저장하는 객체
  */
@@ -8,7 +10,7 @@ public class MemberInfoItem {
     public int seq;
     public String phone;
     public String name;
-    public String regDate;
+    @SerializedName("reg_date") String regDate;
 
     public String toString(){
         return "MemberInfoItem{" +

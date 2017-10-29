@@ -119,7 +119,7 @@ public class PermissionActivity extends AppCompatActivity {
      * 인덱스 액티비티를 실행하고 현재 액티비티를 종료한다.
      */
     private void goIndexActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, IndexActivity.class);
         startActivity(intent);
 
         finish();

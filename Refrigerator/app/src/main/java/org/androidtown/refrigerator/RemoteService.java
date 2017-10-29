@@ -15,7 +15,7 @@ import retrofit2.http.Path;
  */
 
 public interface RemoteService {
-    String BASE_URL = "http://172.30.1.56:3000";
+    String BASE_URL = "http://192.168.0.8:3000";
 
     //사용자 정보
     @GET("/member/{phone}")
