@@ -54,8 +54,8 @@ public class RegistProduct extends AppCompatActivity {
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView arg0, View arg1, int arg2, long arg3) {
-                Toast.makeText(getBaseContext(), arraylist.get(arg2) + "이 설정되었습니다.",
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getBaseContext(), arraylist.get(arg2) + "이 설정되었습니다.",
+//                        Toast.LENGTH_SHORT).show();
                 select_item = String.valueOf(arraylist.get(arg2));
             }
 
