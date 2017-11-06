@@ -67,10 +67,10 @@ public class RegistProduct extends AppCompatActivity {
 
 
     }
-    public void onClickedbt(View v)
+    public void onClicked(View v)
     {
         DatePickers newFragment = new DatePickers();
-        newFragment.show(getFragmentManager(),"datePicker");
+        newFragment.show(getFragmentManager(),"DatePickers");
     }
 }
 
