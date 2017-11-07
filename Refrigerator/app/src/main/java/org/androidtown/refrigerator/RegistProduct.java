@@ -2,6 +2,11 @@
 package org.androidtown.refrigerator;
 
 import android.app.DatePickerDialog;
+<<<<<<< HEAD
+=======
+import android.app.Dialog;
+import android.app.DialogFragment;
+>>>>>>> d86982f801d97d1842fac001ad2d2f65e8a39834
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,16 +22,21 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+<<<<<<< HEAD
+=======
+
+import static org.androidtown.refrigerator.R.layout.activity_regist_product;
+>>>>>>> d86982f801d97d1842fac001ad2d2f65e8a39834
 
 public class RegistProduct extends AppCompatActivity {
 
+    ArrayList arraylist;
+    public static String select_item = "";
 
-ArrayList arraylist;
-    public static String select_item="";
     @Override
-    public void onCreate (Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_regist_product);
+        setContentView(activity_regist_product);
         arraylist = new ArrayList();
         arraylist.add("과일");
         arraylist.add("채소");
@@ -42,23 +52,25 @@ ArrayList arraylist;
         arraylist.add("냉동/간편식품");
         arraylist.add("통조림");
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,arraylist);
-        Spinner sp = (Spinner)findViewById(R.id.type_spinner);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, arraylist);
+        Spinner sp = (Spinner) findViewById(R.id.type_spinner);
         sp.setPrompt("유형을 선택하세요.");
         sp.setAdapter(adapter);
+
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-                public void onItemSelected(AdapterView arg0,View arg1,int arg2,long arg3){
-                    Toast.makeText(getBaseContext(),arraylist.get(arg2)+"이 설정되었습니다.",
-                            Toast.LENGTH_SHORT).show();
-                    select_item = String.valueOf(arraylist.get(arg2));
-                }
+            public void onItemSelected(AdapterView arg0, View arg1, int arg2, long arg3) {
+//                Toast.makeText(getBaseContext(), arraylist.get(arg2) + "이 설정되었습니다.",
+//                        Toast.LENGTH_SHORT).show();
+                select_item = String.valueOf(arraylist.get(arg2));
+            }
 
             @Override
             public void onNothingSelected(AdapterView arg0) {
 
             }
         });
+<<<<<<< HEAD
 
         Calendar c = Calendar.getInstance();
             DatePickerDialog datePickerDialog = new DatePickerDialog(RegistProduct.this,android.R.style.Theme_Holo_Dialog_MinWidth,new DatePickerDialog.OnDateSetListener(){
@@ -75,5 +87,15 @@ ArrayList arraylist;
         //datePickerDialog.getWindow().setBackgroundDrawableResource(android);
         datePickerDialog.show();
     }
+=======
+>>>>>>> d86982f801d97d1842fac001ad2d2f65e8a39834
 
+
+    }
+    public void onClicked(View v)
+    {
+        DatePickers newFragment = new DatePickers();
+        newFragment.show(getFragmentManager(),"DatePickers");
+    }
 }
+
