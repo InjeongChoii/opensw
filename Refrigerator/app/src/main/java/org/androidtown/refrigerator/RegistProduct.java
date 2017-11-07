@@ -1,12 +1,5 @@
 
 package org.androidtown.refrigerator;
-
-import android.app.DatePickerDialog;
-<<<<<<< HEAD
-=======
-import android.app.Dialog;
-import android.app.DialogFragment;
->>>>>>> d86982f801d97d1842fac001ad2d2f65e8a39834
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,18 +8,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-<<<<<<< HEAD
-=======
+
 
 import static org.androidtown.refrigerator.R.layout.activity_regist_product;
->>>>>>> d86982f801d97d1842fac001ad2d2f65e8a39834
+
 
 public class RegistProduct extends AppCompatActivity {
 
@@ -70,32 +57,10 @@ public class RegistProduct extends AppCompatActivity {
 
             }
         });
-<<<<<<< HEAD
-
-        Calendar c = Calendar.getInstance();
-            DatePickerDialog datePickerDialog = new DatePickerDialog(RegistProduct.this,android.R.style.Theme_Holo_Dialog_MinWidth,new DatePickerDialog.OnDateSetListener(){
-                @Override
-                public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth){
-                    try {
-                        Date d = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(year+"-"+(monthOfYear+1)+"-"+dayOfMonth);
-                    } catch (Exception e){
-                        e.printStackTrace();
-                    }
-                }
-            },c.get(Calendar.YEAR),c.get(Calendar.MONTH),c.get(Calendar.DAY_OF_MONTH));
-        datePickerDialog.getDatePicker().setCalendarViewShown(false);
-        //datePickerDialog.getWindow().setBackgroundDrawableResource(android);
-        datePickerDialog.show();
-    }
-=======
->>>>>>> d86982f801d97d1842fac001ad2d2f65e8a39834
-
-
     }
     public void onClicked(View v)
     {
         DatePickers newFragment = new DatePickers();
-        newFragment.show(getFragmentManager(),"DatePickers");
+        //newFragment.show(getFragmentManager(),"DatePickers");
     }
 }
-
