@@ -2,38 +2,35 @@
 package org.androidtown.refrigerator;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.icu.util.GregorianCalendar;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-import java.util.ArrayList;
-
-
-import static org.androidtown.refrigerator.R.layout.activity_regist_product;
-
 
 public class RegistProduct extends AppCompatActivity {
 
     ArrayList arraylist;
-    public static String select_item = "";
+    DatePickerDialog picker;
+    EditText dateText;
+    Button dateButton;
 
-    TextView mDate;
-
-    int mYear, mMonth, mDay;
+    static String select_item = "";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(activity_regist_product);
+        setContentView(R.layout.activity_regist_product);
+
         arraylist = new ArrayList();
         arraylist.add("과일");
         arraylist.add("채소");
@@ -49,15 +46,29 @@ public class RegistProduct extends AppCompatActivity {
         arraylist.add("냉동/간편식품");
         arraylist.add("통조림");
 
-        mDate = (TextView)findViewById(R.id.txtdate);
-        android.icu.util.Calendar cal = new GregorianCalendar();
+        dateButton = (Button) findViewById(R.id.select_date);
 
-        mYear =cal.get(android.icu.util.Calendar.YEAR);
-        mMonth = cal.get(android.icu.util.Calendar.MONTH);
-        mDay = cal.get(android.icu.util.Calendar.DAY_OF_MONTH);
+        dateText = (EditText) findViewById(R.id.txtdate);
+        dateText.setInputType(InputType.TYPE_NULL);
+        dateText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        UpdateNow();
+                final Calendar calendar = Calendar.getInstance();
 
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                picker = new DatePickerDialog(RegistProduct.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int day) {
+                        dateText.setText(day + "/" + (month + 1) + "/" + year);
+                    }
+                }, year, month, day);
+                picker.show();
+            }
+        });
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, arraylist);
         Spinner sp = (Spinner) findViewById(R.id.type_spinner);
@@ -76,39 +87,5 @@ public class RegistProduct extends AppCompatActivity {
 
             }
         });
-    }
-
-//    public void onClicked(View v)
-//    {
-//        DatePickers newFragment = new DatePickers();
-////        newFragment.show(getFragmentManager(),"DatePickers");
-//    }
-
-
-    public void monClick() {
-        new DatePickerDialog(RegistProduct.this, mDateSetListener,mYear,mMonth,mDay).show();
-    }
-
-    DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener(){
-        @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth){
-            mYear = year;
-            mMonth = monthOfYear;
-            mDay = dayOfMonth;
-
-            UpdateNow();
-        }
-    };
-
-    void UpdateNow(){
-        mDate .setText(String.format("%d/%d//%d",mYear,mMonth+1,mDay));
-    }
-
-
-
-    public void onClicked(View v)
-    {
-        DatePickers newFragment = new DatePickers();
-        //newFragment.show(getFragmentManager(),"DatePickers");
     }
 }
