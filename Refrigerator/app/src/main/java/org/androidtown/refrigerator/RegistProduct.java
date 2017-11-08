@@ -15,14 +15,11 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+
 
 import static org.androidtown.refrigerator.R.layout.activity_regist_product;
+
 
 public class RegistProduct extends AppCompatActivity {
 
@@ -79,8 +76,6 @@ public class RegistProduct extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     public void monClick() {
@@ -102,5 +97,11 @@ public class RegistProduct extends AppCompatActivity {
         mDate .setText(String.format("%d/%d//%d",mYear,mMonth+1,mDay));
     }
 
-}
 
+
+    public void onClicked(View v)
+    {
+        DatePickers newFragment = new DatePickers();
+        //newFragment.show(getFragmentManager(),"DatePickers");
+    }
+}
