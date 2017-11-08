@@ -29,7 +29,6 @@ public class DatePickers extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
 
 
@@ -44,7 +43,7 @@ public class DatePickers extends Activity {
         UpdateNow();
     }
 
-    public void mOnclick() {
+    public void monclick() {
         new DatePickerDialog(DatePickers.this, mDateSetListener,mYear,mMonth,mDay).show();
     }
 
