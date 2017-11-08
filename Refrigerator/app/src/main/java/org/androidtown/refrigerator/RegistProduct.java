@@ -1,5 +1,10 @@
 
 package org.androidtown.refrigerator;
+
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.icu.util.GregorianCalendar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
-
+import android.widget.TextView;
+import android.widget.Toast;
 import java.util.ArrayList;
 
 
@@ -19,6 +25,10 @@ public class RegistProduct extends AppCompatActivity {
 
     ArrayList arraylist;
     public static String select_item = "";
+
+    TextView mDate;
+
+    int mYear, mMonth, mDay;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,11 +49,20 @@ public class RegistProduct extends AppCompatActivity {
         arraylist.add("냉동/간편식품");
         arraylist.add("통조림");
 
+        mDate = (TextView)findViewById(R.id.txtdate);
+        android.icu.util.Calendar cal = new GregorianCalendar();
+
+        mYear =cal.get(android.icu.util.Calendar.YEAR);
+        mMonth = cal.get(android.icu.util.Calendar.MONTH);
+        mDay = cal.get(android.icu.util.Calendar.DAY_OF_MONTH);
+
+        UpdateNow();
+
+
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, arraylist);
         Spinner sp = (Spinner) findViewById(R.id.type_spinner);
         sp.setPrompt("유형을 선택하세요.");
         sp.setAdapter(adapter);
-
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView arg0, View arg1, int arg2, long arg3) {
@@ -58,9 +77,38 @@ public class RegistProduct extends AppCompatActivity {
             }
         });
     }
+
 //    public void onClicked(View v)
 //    {
 //        DatePickers newFragment = new DatePickers();
 ////        newFragment.show(getFragmentManager(),"DatePickers");
 //    }
+
+
+    public void monClick() {
+        new DatePickerDialog(RegistProduct.this, mDateSetListener,mYear,mMonth,mDay).show();
+    }
+
+    DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener(){
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth){
+            mYear = year;
+            mMonth = monthOfYear;
+            mDay = dayOfMonth;
+
+            UpdateNow();
+        }
+    };
+
+    void UpdateNow(){
+        mDate .setText(String.format("%d/%d//%d",mYear,mMonth+1,mDay));
+    }
+
+
+
+    public void onClicked(View v)
+    {
+        DatePickers newFragment = new DatePickers();
+        //newFragment.show(getFragmentManager(),"DatePickers");
+    }
 }

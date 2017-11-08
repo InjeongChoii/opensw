@@ -43,9 +43,10 @@ public class DatePickers extends Activity {
         UpdateNow();
     }
 
-    public void monclick() {
+    public void monClick() {
         new DatePickerDialog(DatePickers.this, mDateSetListener,mYear,mMonth,mDay).show();
     }
+
 
     DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener(){
         @Override
