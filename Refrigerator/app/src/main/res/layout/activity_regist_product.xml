@@ -76,19 +76,30 @@
             android:layout_height="wrap_content"
             android:text="date"
             android:textSize="20sp"
-            android:layout_weight="1.35" />
+            android:layout_weight="2.21" />
 
-        <Button
-            android:id="@+id/select_date"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="monClick"
-            android:text="@string/search" />
+        <!--<Button-->
+            <!--android:id="@+id/select_date"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:onClick="monClick"-->
+            <!--android:text="@string/search" />-->
 
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="308sp">
+        <TextView
+            android:layout_width="385dp"
+            android:layout_height="308dp"
+            android:text = "과일 -7일 \n 채소 -6일 \n 생선 -3일 \n 해산물 - 1주 \n 육류 - 4일"
+            android:textSize="30dp"
+            android:gravity="center"
+            />
 
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
