@@ -22,7 +22,6 @@ public class RegistProduct extends AppCompatActivity {
     ArrayList arraylist;
     DatePickerDialog picker;
     EditText dateText;
-    Button dateButton;
 
     static String select_item = "";
 
@@ -46,7 +45,7 @@ public class RegistProduct extends AppCompatActivity {
         arraylist.add("냉동/간편식품");
         arraylist.add("통조림");
 
-        dateButton = (Button) findViewById(R.id.select_date);
+
 
         dateText = (EditText) findViewById(R.id.txtdate);
         dateText.setInputType(InputType.TYPE_NULL);
