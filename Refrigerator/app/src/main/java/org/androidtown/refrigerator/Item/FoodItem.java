@@ -12,9 +12,6 @@ public class FoodItem {
     public int seq;
     public String name;
     public String category;
-    public String regDate;
-    public String expDate;
-    public String foodIconFileName;
 
 
     @Override
@@ -23,9 +20,6 @@ public class FoodItem {
                 "seq=" + seq +
                 ", name='" + name + '\'' +
                 ", category='" + category + '\'' +
-                ", regDate='" + regDate + '\'' +
-                ", expDate='" + expDate + '\'' +
-                ", foodIconFileName='" + foodIconFileName + '\'' +
                 '}';
 
     }
