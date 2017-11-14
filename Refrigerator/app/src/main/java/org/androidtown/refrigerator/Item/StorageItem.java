@@ -1,4 +1,4 @@
-package org.androidtown.refrigerator;
+package org.androidtown.refrigerator.Item;
 
 /**
  * 냉장고에 음식을 등록하는 객체

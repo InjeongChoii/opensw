@@ -1,4 +1,4 @@
-package org.androidtown.refrigerator;
+package org.androidtown.refrigerator.Item;
 
 /**
  * 음식 객체
