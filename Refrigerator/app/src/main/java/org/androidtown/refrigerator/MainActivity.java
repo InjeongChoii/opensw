@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ListViewAdapter() ;
 
         // 리스트뷰 참조 및 Adapter달기
-        listview = (ListView) findViewById(R.id.listview1);
+        listview = (ListView)findViewById(R.id.listview1);
 
         // 첫 번째 아이템 추가.
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.ic_local_dining_black_24dp),
