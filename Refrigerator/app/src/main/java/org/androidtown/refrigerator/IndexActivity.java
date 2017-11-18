@@ -65,7 +65,7 @@ public class IndexActivity extends AppCompatActivity {
      */
     protected void selectMemberInfo(String phone){
 
-        RemoteService remoteService = ServiceGenerator.createService(RemoteService.class);
+        RemoteService remoteService = ServiceGenerator.createService(RemoteService.class); //?
 
         Call<MemberInfoItem> call = remoteService.selectMemberInfo(phone);
         call.enqueue(new Callback<MemberInfoItem>() {
@@ -123,10 +123,10 @@ public class IndexActivity extends AppCompatActivity {
         }
 //
 //        Intent intent = new Intent(IndexActivity.this, MainActivity.class);
-//        startActivity(intent);
+//        startActivity(intent); ??
 
         Intent intent2 = new Intent(IndexActivity.this,WishList.class);
-        startActivity(intent2);
+        startActivity(intent2); // 왜 ㅐwish List 실행?
 
         finish();
     }

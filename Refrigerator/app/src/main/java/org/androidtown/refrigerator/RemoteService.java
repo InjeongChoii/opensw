@@ -14,7 +14,6 @@ import retrofit2.http.Path;
  * Created by stare on 2017-10-27.
  * 서버에 호출할 메소드를 지정하는 인터페이스
  */
-
 public interface RemoteService {
     String BASE_URL = "http://192.168.0.5:3000";
 
@@ -28,6 +27,5 @@ public interface RemoteService {
     @FormUrlEncoded
     @POST("/member/phone")
     Call<String> insertMemberPhone(@Field("phone") String phone);
-
 
 }
