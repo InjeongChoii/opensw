@@ -19,7 +19,7 @@ import retrofit2.http.Path;
  * 서버에 호출할 메소드를 지정하는 인터페이스
  */
 public interface RemoteService {
-    String BASE_URL = "http://10.30.116.163:3000";
+    String BASE_URL = "http://192.168.0.7:3000";
 
     //사용자 정보
     @GET("/member/{phone}")

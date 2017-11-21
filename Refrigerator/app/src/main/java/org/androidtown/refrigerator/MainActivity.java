@@ -21,6 +21,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.R.id.list;
+
 public class MainActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
 
@@ -63,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
         int seq = ((MyApplication)getApplicationContext()).getMemberSeq();
         adapter = new ListViewAdapter(context,R.layout.activity_regist_product,new ArrayList<StorageItem>()) ;
 
+
+        MyLog.d(TAG,"selectStorageListInfo() Call");
+
         RemoteService remoteService = ServiceGenerator.createService(RemoteService.class);
 
         Call<ArrayList<StorageItem>> call = remoteService.selectStorageListInfo(seq);
@@ -71,19 +76,23 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ArrayList<StorageItem>> call, Response<ArrayList<StorageItem>> response) {
                 ArrayList<StorageItem> list = response.body();
 
-                MyLog.d(TAG,"response : " + list);
+                MyLog.d(TAG,"response : " + list );
 
-                if (response.isSuccessful() && list != null) {
+                if (response.isSuccessful() && !list.isEmpty()) {
                     adapter.addItemList(list);
                     // addItemList 를 for문 addItem으로 변경
                     // 각각 selectStorageFoodInfo()를 돌려 음식 이름과 분류 정보를 불러와야함.
-
-                    if (adapter.getCount() == 0) {
-                        noDataText.setVisibility(View.VISIBLE);
-                    } else {
-                        noDataText.setVisibility(View.GONE);
-                    }
                 }
+
+
+                MyLog.d(TAG,"response : " + list + ", adapter.isEmpty() : " + adapter.isEmpty() );
+
+                if (adapter.isEmpty()) {
+                    noDataText.setVisibility(View.VISIBLE);
+                } else {
+                    noDataText.setVisibility(View.GONE);
+                }
+
             }
 
             @Override

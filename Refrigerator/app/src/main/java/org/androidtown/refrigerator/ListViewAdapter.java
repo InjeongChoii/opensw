@@ -68,7 +68,7 @@ public class ListViewAdapter extends BaseAdapter {
         //
         //분류별 사진 select를 해야하는데 아무것도 모르겠당
         //iconImageView.setImageDrawable(listViewItem.getS());
-        titleTextView.setText(listViewItem.getFood_name());
+        //titleTextView.setText(listViewItem.getFood_name());
         dateTextView.setText(listViewItem.getExp_date());
 
         return convertView;
@@ -91,7 +91,7 @@ public class ListViewAdapter extends BaseAdapter {
         StorageItem item = new StorageItem();
 
 //        item.setIcon(icon);
-        item.setFood_name(title);
+        //item.setFood_name(title);
         item.setExp_date(date);
 
         storageItemList.add(item);
