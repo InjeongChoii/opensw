@@ -1,12 +1,12 @@
 package org.androidtown.refrigerator;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+
+import org.androidtown.refrigerator.Item.MemberInfoItem;
 
 import org.androidtown.refrigerator.Item.MemberInfoItem;
 
@@ -15,7 +15,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static android.R.attr.inset;
 
 public class IndexActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
@@ -70,7 +69,7 @@ public class IndexActivity extends AppCompatActivity {
      */
     protected void selectMemberInfo(String phone){
 
-        RemoteService remoteService = ServiceGenerator.createService(RemoteService.class);
+        RemoteService remoteService = ServiceGenerator.createService(RemoteService.class); //?
 
         Call<MemberInfoItem> call = remoteService.selectMemberInfo(phone);
         call.enqueue(new Callback<MemberInfoItem>() {
@@ -127,8 +126,10 @@ public class IndexActivity extends AppCompatActivity {
             insertMemberPhone();
 
             setMemberInfoItem(item);
-
         }
+
+        Intent intent = new Intent(IndexActivity.this, MainActivity.class);
+        startActivity(intent);
 
         finish();
     }

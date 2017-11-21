@@ -40,10 +40,12 @@ public class MainActivity extends AppCompatActivity {
 
         listview = (ListView) findViewById(R.id.listview1);
         noDataText =(TextView) findViewById(R.id.no_data);
+
         selectStorageListInfo();
         listview.setAdapter(adapter);
 
 
+        //등록 버튼
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

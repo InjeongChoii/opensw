@@ -1,7 +1,6 @@
 package org.androidtown.refrigerator;
 
 import android.app.Application;
-import android.media.MediaMetadata;
 import android.os.StrictMode;
 
 import org.androidtown.refrigerator.Item.MemberInfoItem;

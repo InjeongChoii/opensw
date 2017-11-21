@@ -1,5 +1,6 @@
 package org.androidtown.refrigerator;
 
+import org.androidtown.refrigerator.Item.FoodItem;
 import org.androidtown.refrigerator.Item.MemberInfoItem;
 import org.androidtown.refrigerator.Item.StorageItem;
 
@@ -10,7 +11,6 @@ import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
@@ -18,7 +18,6 @@ import retrofit2.http.Path;
  * Created by stare on 2017-10-27.
  * 서버에 호출할 메소드를 지정하는 인터페이스
  */
-
 public interface RemoteService {
     String BASE_URL = "http://10.30.116.163:3000";
 
@@ -33,6 +32,7 @@ public interface RemoteService {
     @POST("/member/phone")
     Call<String> insertMemberPhone(@Field("phone") String phone);
 
+
     //음식정보
     @GET("/food/{name}")
     Call<FoodItem> selectFoodInfo(@Path("name") String name);
@@ -43,5 +43,4 @@ public interface RemoteService {
     //저장음식 정보
     @GET("/storages/{mem_seq}")
     Call <ArrayList<StorageItem>> selectStorageListInfo (@Path("mem_seq") int mem_seq);
-
 }
