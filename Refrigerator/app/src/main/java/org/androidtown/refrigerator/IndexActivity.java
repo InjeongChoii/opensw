@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import org.androidtown.refrigerator.Item.MemberInfoItem;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -57,6 +59,7 @@ public class IndexActivity extends AppCompatActivity {
     public void startTask(){
         String phone = PhoneLib.getInstance().getPhoneNumber(this);
 
+        MyLog.d(TAG, "initial phone num : " + phone);
         selectMemberInfo(phone);
     }
 
@@ -122,13 +125,10 @@ public class IndexActivity extends AppCompatActivity {
     private void goProfileActivity(MemberInfoItem item){
         if(item == null || item.seq <= 0){
             insertMemberPhone();
-        }
-//
-//        Intent intent = new Intent(IndexActivity.this, MainActivity.class);
-//        startActivity(intent);
 
-        Intent intent2 = new Intent(IndexActivity.this,WishList.class);
-        startActivity(intent2);
+            setMemberInfoItem(item);
+
+        }
 
         finish();
     }
@@ -146,6 +146,7 @@ public class IndexActivity extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
                     MyLog.d(TAG, "success insert id " + response.body().toString());
+
                 }else{
                     int status = response.code();
                     ResponseBody errorBody = response.errorBody();

@@ -25,5 +25,8 @@
     <!--유통기한 설명 화면 -->
     <string name="information"> 평균 유통기한 \n \n 과일 -7일 \n 채소 -6일 \n 생선 -3일 \n 해산물 - 1주 \n 육류 - 4일</string>
 
+    <!--저장된 음식 조회 화면-->
+    <string name="no_data">없음</string>
+
 
 </resources>

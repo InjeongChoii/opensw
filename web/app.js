@@ -28,7 +28,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/member', require('./routes/member'));
-
+app.use('/food', require('./routes/food'));
+app.use('/storages', require('./routes/storages'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

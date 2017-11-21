@@ -4,6 +4,8 @@ import android.app.Application;
 import android.media.MediaMetadata;
 import android.os.StrictMode;
 
+import org.androidtown.refrigerator.Item.MemberInfoItem;
+
 /**
  * Created by stare on 2017-10-27.
  */
@@ -21,7 +23,7 @@ public class MyApplication extends Application {
         StrictMode.setVmPolicy(builder.build());
     }
 
-    public MemberInfoItem getMemberInfoItem() {
+    public org.androidtown.refrigerator.Item.MemberInfoItem getMemberInfoItem() {
         if(memberInfoItem == null)
             memberInfoItem = new MemberInfoItem();
 

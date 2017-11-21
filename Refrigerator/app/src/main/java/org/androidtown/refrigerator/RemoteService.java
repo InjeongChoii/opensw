@@ -1,5 +1,10 @@
 package org.androidtown.refrigerator;
 
+import org.androidtown.refrigerator.Item.MemberInfoItem;
+import org.androidtown.refrigerator.Item.StorageItem;
+
+import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -15,7 +20,7 @@ import retrofit2.http.Path;
  */
 
 public interface RemoteService {
-    String BASE_URL = "http://192.168.0.5:3000";
+    String BASE_URL = "http://10.30.116.163:3000";
 
     //사용자 정보
     @GET("/member/{phone}")
@@ -28,5 +33,15 @@ public interface RemoteService {
     @POST("/member/phone")
     Call<String> insertMemberPhone(@Field("phone") String phone);
 
+    //음식정보
+    @GET("/food/{name}")
+    Call<FoodItem> selectFoodInfo(@Path("name") String name);
+
+    @POST("/food/info")
+    Call<FoodItem> insertFoodInfo(@Body FoodItem foodItem);
+
+    //저장음식 정보
+    @GET("/storages/{mem_seq}")
+    Call <ArrayList<StorageItem>> selectStorageListInfo (@Path("mem_seq") int mem_seq);
 
 }

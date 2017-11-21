@@ -1,4 +1,4 @@
-package org.androidtown.refrigerator;
+package org.androidtown.refrigerator.Item;
 
 import com.google.gson.annotations.SerializedName;
 
