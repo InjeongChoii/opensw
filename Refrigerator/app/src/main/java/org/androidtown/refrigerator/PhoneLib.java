@@ -34,13 +34,15 @@ public class PhoneLib {
     public String getPhoneNumber(Context context){
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         String number = tm.getLine1Number();
-
         if(number != null && !number.equals("") && number.length() >= 8) {
             if (Locale.getDefault().getCountry().equals("KR")){
                 if(number.startsWith("82")){
                     number = "+" + number;
                 }
-
+                String numsub = number.substring(4);
+                if(!numsub.startsWith("0")){
+                    number = number.substring(1,3)+"0"+number.substring(4);
+                }
                 if(number.startsWith("0")){
                     number = "+82" + number;
                 }
