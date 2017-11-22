@@ -39,12 +39,13 @@ public class PhoneLib {
                 if(number.startsWith("82")){
                     number = "+" + number;
                 }
-                String numsub = number.substring(4);
-                if(!numsub.startsWith("0")){
-                    number = number.substring(1,3)+"0"+number.substring(4);
-                }
+
                 if(number.startsWith("0")){
                     number = "+82" + number;
+                }
+                String numsub = number.substring(3);
+                if(!(numsub.startsWith("0"))) {
+                    number = number.substring(0, 3) + "0" + number.substring(3);
                 }
             }
             MyLog.d(TAG, "number " + number);
