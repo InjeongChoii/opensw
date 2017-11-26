@@ -31,7 +31,31 @@ public class StorageItem {
         return exp_date;
     }
 
+    public int getSeq() {
+        return seq;
+    }
+
+    public int getMem_seq() {
+        return mem_seq;
+    }
+
+    public int getFood_seq() {
+        return food_seq;
+    }
+
     public void setExp_date(String exp_date) {
         this.exp_date = exp_date;
+    }
+
+    public void setSeq(int seq) {
+        this.seq = seq;
+    }
+
+    public void setMem_seq(int mem_seq) {
+        this.mem_seq = mem_seq;
+    }
+
+    public void setFood_seq(int food_seq) {
+        this.food_seq = food_seq;
     }
 }

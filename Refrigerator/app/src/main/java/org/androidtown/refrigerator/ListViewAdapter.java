@@ -3,17 +3,14 @@ package org.androidtown.refrigerator;
  * Created by stare on 2017-09-24.
  */
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.androidtown.refrigerator.Item.FoodItem;
+import org.androidtown.refrigerator.Item.ListViewItem;
 import org.androidtown.refrigerator.Item.MemberInfoItem;
-import org.androidtown.refrigerator.Item.StorageItem;
 
 import java.util.ArrayList;
 
@@ -24,12 +21,12 @@ public class ListViewAdapter extends BaseAdapter {
 
     private Context context;
     private int resource;
-    private ArrayList<StorageItem> storageItemList;
+    private ArrayList<ListViewItem> storageItemList;
     private MemberInfoItem memberInfoItem;
 
 
     // ListViewAdapter의 생성자
-    public ListViewAdapter(Context context, int resource, ArrayList<StorageItem> itemList){
+    public ListViewAdapter(Context context, int resource, ArrayList<ListViewItem> itemList){
 
         this.context = context;
         this.resource = resource;
@@ -62,13 +59,13 @@ public class ListViewAdapter extends BaseAdapter {
         TextView dateTextView = (TextView) convertView.findViewById(R.id.textView2) ;
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-        StorageItem listViewItem = storageItemList.get(position);
+        ListViewItem listViewItem = storageItemList.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
         //
         //분류별 사진 select를 해야하는데 아무것도 모르겠당
         //iconImageView.setImageDrawable(listViewItem.getS());
-        //titleTextView.setText(listViewItem.getFood_name());
+        titleTextView.setText(listViewItem.getFoodName());
         dateTextView.setText(listViewItem.getExp_date());
 
         return convertView;
@@ -87,17 +84,23 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     // 아이템 데이터 추가를 위한 함수
-    public void addItem(Drawable icon, String title, String date) {
-        StorageItem item = new StorageItem();
+    public void addItem(String name, String type, String exp_date) {
+        MyLog.d(TAG,"data from MainActivity : " + name + ", type : " + type + ", exp date : " +exp_date);
+
+        ListViewItem item = new ListViewItem();
 
 //        item.setIcon(icon);
-        //item.setFood_name(title);
-        item.setExp_date(date);
+        item.setFoodName(name);
+        item.setExp_date(exp_date);
+
 
         storageItemList.add(item);
+
+        notifyDataSetChanged();
+
     }
 
-    public void addItemList(ArrayList<StorageItem> itemList) {
+    public void addItemList(ArrayList <ListViewItem> itemList) {
         this.storageItemList.addAll(itemList);
         notifyDataSetChanged();
 

@@ -23,4 +23,28 @@ public class FoodItem {
                 '}';
 
     }
+
+    public int getSeq() {
+        return seq;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setSeq(int seq) {
+        this.seq = seq;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 }

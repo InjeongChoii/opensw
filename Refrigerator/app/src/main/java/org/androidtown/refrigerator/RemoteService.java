@@ -37,6 +37,9 @@ public interface RemoteService {
     @GET("/food/{name}")
     Call<FoodItem> selectFoodInfo(@Path("name") String name);
 
+    @GET("/food/{seq}")
+    Call<FoodItem> selectFoodInfo(@Path("seq") int seq);
+
     @POST("/food/info")
     Call<FoodItem> insertFoodInfo(@Body FoodItem foodItem);
 

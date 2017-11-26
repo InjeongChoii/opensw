@@ -3,15 +3,35 @@ var db = require('../db')
 var router = express.Router();
 
 //food/:name
-router.get('/:name',function(req, res, next){
-  var name = req.params.name;
+// router.get('/:name',function(req, res, next){
+//   var name = req.params.name;
+//
+//   var sql = "select * " +
+//             "from refrigerator_food " +
+//             "where name = ? limit 1;";
+//   console.log("sql : " + sql);
+//
+//   db.get().query(sql, name, function(err, rows){
+//     console.log("rows : " +JSON.stringify(rows));
+//     console.log("row.length : " + rows.length);
+//     if(rows.length > 0){
+//       res.json(rows[0]);
+//     }else{
+//       res.sendStatus(400);
+//     }
+//   });
+// });
+
+//food/:seq
+router.get('/:seq',function(req, res, next){
+  var seq = req.params.seq;
 
   var sql = "select * " +
             "from refrigerator_food " +
-            "where name = ? limit 1;";
+            "where seq = ? limit 1;";
   console.log("sql : " + sql);
 
-  db.get().query(sql, name, function(err, rows){
+  db.get().query(sql, seq, function(err, rows){
     console.log("rows : " +JSON.stringify(rows));
     console.log("row.length : " + rows.length);
     if(rows.length > 0){
@@ -21,6 +41,7 @@ router.get('/:name',function(req, res, next){
     }
   });
 });
+
 
 
 //member/info
